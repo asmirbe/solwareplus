@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/asmirbelkic/solware.git"
   },
+  "activationEvents": [
+    "onCommand:open-with-url-prefix.open"
+  ],
   "engines": {
     "vscode": "^1.62.0"
   },

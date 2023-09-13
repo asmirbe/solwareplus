@@ -1,8 +1,13 @@
-const vscode = require("vscode");
-const openurl = require("openurl");
-const messages = require("./messages"); // Import the messages file
-const axios = require("axios");
-const activate = require("./activate.js");
+import { window, commands, workspace, ConfigurationTarget } from "vscode";
+import { open } from "openurl";
+import {
+  urlPrefix,
+  noSandboxRunning,
+  pageNotFound,
+  noFileSelected,
+  noWorkspaceFolder,
+} from "./messages"; // Import the messages file
+import { get } from "axios";
 
 /**
  * Check if a web page exists.
@@ -12,7 +17,7 @@ const activate = require("./activate.js");
  */
 const checkIfPageExists = async (url) => {
   try {
-    const response = await axios.get(url);
+    const response = await get(url);
     // If status code is 200, the page exists
     return response.status === 200;
   } catch (error) {
@@ -31,7 +36,7 @@ const checkIfPageExists = async (url) => {
  */
 const checkIfSandboxIsRunning = async (url) => {
   try {
-    await axios.get(url);
+    await get(url);
     return true;
   } catch (error) {
     console.log("Server is not running");
@@ -45,7 +50,7 @@ const checkIfSandboxIsRunning = async (url) => {
  * @param {string} message - The error message to display.
  */
 const showError = (message) => {
-  vscode.window.showErrorMessage(message);
+  window.showErrorMessage(message);
 };
 
 /**
@@ -54,21 +59,21 @@ const showError = (message) => {
  * @param {string} url - The URL to open.
  */
 const openUrl = async (url) => {
-  const isSandboxRunning = await checkIfSandboxIsRunning(messages.urlPrefix);
+  const isSandboxRunning = await checkIfSandboxIsRunning(urlPrefix);
 
   if (!isSandboxRunning) {
-    showError(messages.noSandboxRunning);
+    showError(noSandboxRunning);
     return;
   }
 
   const doesPageExist = await checkIfPageExists(url);
 
   if (!doesPageExist) {
-    showError(messages.pageNotFound);
+    showError(pageNotFound);
     return;
   }
 
-  openurl.open(url);
+  open(url);
 };
 
 /**
@@ -76,25 +81,25 @@ const openUrl = async (url) => {
  * @param {vscode.ExtensionContext} context
  */
 const registerCommand = (context) => {
-  let disposable = vscode.commands.registerCommand(
+  let disposable = commands.registerCommand(
     "open-with-url-prefix.open",
     (fileUri) => {
       if (!fileUri) {
-        showError(messages.noFileSelected);
+        showError(noFileSelected);
         return;
       }
 
-      const workspaceFolder = vscode.workspace.getWorkspaceFolder(fileUri);
+      const workspaceFolder = workspace.getWorkspaceFolder(fileUri);
 
       if (!workspaceFolder) {
-        showError(messages.noWorkspaceFolder);
+        showError(noWorkspaceFolder);
         return;
       }
 
-      const fileRelativePath = vscode.workspace.asRelativePath(fileUri, false);
+      const fileRelativePath = workspace.asRelativePath(fileUri, false);
       const file = fileRelativePath.replace(/(^|.*\/)(app-sandbox|app)\//, "");
 
-      const url = `${messages.urlPrefix}${file}`;
+      const url = `${urlPrefix}${file}`;
 
       openUrl(url);
     },
@@ -117,13 +122,13 @@ function activate(context) {
     // This is the first time the extension has been run
     context.globalState.update("isFirstRun", false);
 
-    const editorConfig = vscode.workspace.getConfiguration("editor");
-    const workbenchConfig = vscode.workspace.getConfiguration(
+    const editorConfig = workspace.getConfiguration("editor");
+    const workbenchConfig = workspace.getConfiguration(
       "workbench.colorCustomizations",
     );
 
     if (!editorConfig.get("bracketPairColorization.enabled")) {
-      vscode.window
+      window
         .showInformationMessage(
           "Would you like to enable custom settings for bracket pair colorization?",
           "Yes",
@@ -134,43 +139,43 @@ function activate(context) {
             editorConfig.update(
               "bracketPairColorization.enabled",
               true,
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
             // Also set color customizations
             workbenchConfig.update(
               "editorBracketHighlight.foreground1",
               "#5caeef",
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
             workbenchConfig.update(
               "editorBracketHighlight.foreground2",
               "#dfb976",
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
             workbenchConfig.update(
               "editorBracketHighlight.foreground2",
               "#c172d9",
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
             workbenchConfig.update(
               "editorBracketHighlight.foreground2",
               "#4fb1bc",
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
             workbenchConfig.update(
               "editorBracketHighlight.foreground2",
               "#97c26c",
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
             workbenchConfig.update(
               "editorBracketHighlight.foreground2",
               "#abb2c0",
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
             workbenchConfig.update(
               "editorBracketHighlight.unexpectedBracket.foreground",
               "#db6165",
-              vscode.ConfigurationTarget.Global,
+              ConfigurationTarget.Global,
             );
           }
         });
@@ -184,7 +189,7 @@ function activate(context) {
  */
 const deactivate = () => {};
 
-module.exports = {
+export default {
   activate,
   deactivate,
 };
