@@ -15,14 +15,14 @@ About this theme, and some of the considerations made while creating it (as well
 3.  Choose **Extensions** from menu
 4.  Click on the three dots **…** on the top right of the sidebar
 5.  Click **Install from VSIX**
-6.  Select the VSIX file and install it.
+6.  Select the `solwareplus-0.1.0.vsix` file and install it, restart Visual Studio Code and enjoy !
 
 ## Preferences shown in the preview
 
 The font in the preview image is Menlo, [available here](https://www.cufonfonts.com/font/menlo). Editor settings to activate font ligatures:
 
 ```
-"editor.fontFamily": "Menlo, Menlo, IBM Plex Mono, Menlo, monospace",
+"editor.fontFamily": "Menlo, IBM Plex Mono, monospace",
 "editor.fontLigatures": false,
 "editor.fontSize": 14,
 "editor.lineHeight": 1.55,
