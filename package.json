@@ -1,8 +1,8 @@
 {
-  "name": "open-in-sandbox-next",
-  "displayName": "Solware Next Sandbox Opener",
+  "name": "solwareplus",
+  "displayName": "SolwarePlus",
   "description": "Right click a file then click on Open in next sandbox to open the file in the next sandbox.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "Asmir Belkic",
   "author": "Asmir Belkic",
   "repository": {

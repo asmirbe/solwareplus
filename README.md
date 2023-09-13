@@ -19,24 +19,29 @@ About this theme, and some of the considerations made while creating it (as well
 
 ## Preferences shown in the preview
 
-The font in the preview image is Dank Mono, [available here](https://dank.sh/). Editor settings to activate font ligatures:
+The font in the preview image is Menlo, [available here](https://www.cufonfonts.com/font/menlo). Editor settings to activate font ligatures:
 
-```JSON
+```
 "editor.fontFamily": "Menlo, Menlo, IBM Plex Mono, Menlo, monospace",
 "editor.fontLigatures": false,
 "editor.fontSize": 14,
-"editor.fontWeight": 400,
 "editor.lineHeight": 1.55,
 "workbench.productIconTheme": "feather-vscode",
-"editor.bracketPairColorization.enabled": true,
+```
+
+## Preferences for pair colorization
+
+In your `settings.json` pass `editor.bracketPairColorization.enabled` to `true`, then paste in the custom palette.
+
+```
 "workbench.colorCustomizations": {
-		"editorBracketHighlight.foreground1": "#5caeef",
-		"editorBracketHighlight.foreground2": "#dfb976",
-		"editorBracketHighlight.foreground3": "#c172d9",
-		"editorBracketHighlight.foreground4": "#4fb1bc",
-		"editorBracketHighlight.foreground5": "#97c26c",
-		"editorBracketHighlight.foreground6": "#abb2c0",
-		"editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
+	"editorBracketHighlight.foreground1": "#5caeef",
+	"editorBracketHighlight.foreground2": "#dfb976",
+	"editorBracketHighlight.foreground3": "#c172d9",
+	"editorBracketHighlight.foreground4": "#4fb1bc",
+	"editorBracketHighlight.foreground5": "#97c26c",
+	"editorBracketHighlight.foreground6": "#abb2c0",
+	"editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
 }
 ```
 
