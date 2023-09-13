@@ -1774,6 +1774,12 @@
       "settings": {
         "foreground": "#9b78fa"
       }
+    },
+    {
+      "scope": "entity.name.tag.html,meta.tag.structure.head.end.html,text.html.derivative",
+      "settings": {
+        "foreground": "#59abf7"
+      }
     }
   ],
   "colors": {
