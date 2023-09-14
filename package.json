@@ -1,63 +1,63 @@
 {
-	"name": "solwareplus",
-	"displayName": "SolwarePlus",
-	"description": "Right click a file then click on Open in next sandbox to open the file in the next sandbox.",
-	"version": "0.1.0",
-	"publisher": "Asmir Belkic",
-	"author": "Asmir Belkic",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/asmirbelkic/solware.git"
-	},
-	"activationEvents": [
-		"onCommand:open-with-url-prefix.open"
-	],
-	"engines": {
-		"vscode": "^1.62.0"
-	},
-	"categories": [
-		"Other",
-		"Themes"
-	],
-	"main": "./src/extension.js",
-	"contributes": {
-		"themes": [
-			{
-				"id": "Solware",
-				"label": "Solware+",
-				"uiTheme": "vs-dark",
-				"path": "./themes/solware-theme.json"
-			}
-		],
-		"commands": [
-			{
-				"command": "open-with-url-prefix.open",
-				"title": "Open in next sandbox"
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"command": "open-with-url-prefix.open",
-					"group": "navigation",
-					"when": "resourceScheme == 'file'"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"package": "vsce package",
-		"format": "npx prettier --write ."
-	},
-	"devDependencies": {
-		"typescript": "^4.5.2",
-		"vscode": "^1.1.37"
-	},
-	"dependencies": {
-		"axios": "^1.5.0",
-		"open": "^9.1.0",
-		"openurl": "^1.1.1",
-		"prettier": "^3.0.3",
-		"vsce": "^2.15.0"
-	}
+  "name": "solwareplus",
+  "displayName": "SolwarePlus",
+  "description": "Right click a file then click on Open in next sandbox to open the file in the next sandbox.",
+  "version": "0.1.0",
+  "publisher": "Asmir Belkic",
+  "author": "Asmir Belkic",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asmirbelkic/solware.git"
+  },
+  "activationEvents": [
+    "onCommand:open-with-url-prefix.open"
+  ],
+  "engines": {
+    "vscode": "^1.62.0"
+  },
+  "categories": [
+    "Other",
+    "Themes"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "themes": [
+      {
+        "id": "Solware",
+        "label": "Solware+",
+        "uiTheme": "vs-dark",
+        "path": "./themes/solware-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "open-with-url-prefix.open",
+        "title": "Open in next sandbox"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "open-with-url-prefix.open",
+          "group": "navigation",
+          "when": "resourceScheme == 'file'"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "package": "vsce package",
+    "format": "npx prettier --write ."
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2",
+    "vscode": "^1.1.37"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "open": "^9.1.0",
+    "openurl": "^1.1.1",
+    "prettier": "^3.0.3",
+    "vsce": "^2.15.0"
+  }
 }
