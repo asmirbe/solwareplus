@@ -1776,7 +1776,7 @@
 		},
 		{
 			"scope": [
-				"meta.method-call.with-arguments.js,meta.method-call.with-arguments.jsx,meta.method-call.with-arguments.ts,meta.method-call.with-arguments.tsx"
+				"meta.method-call.with-arguments.js,meta.method-call.with-arguments,meta.method-call.with-arguments.ts,meta.method-call.with-arguments.tsx"
 			],
 			"settings": {
 				"foreground": "#c7cdd7"
@@ -1841,7 +1841,7 @@
 			}
 		},
 		{
-			"scope": "support.class.component.open.jsx,entity.name.tag.open.jsx,support.class.component.tsx,entity.name.tag.tsx,meta.tag.tsx",
+			"scope": "support.class.component.open,entity.name.tag,entity.name.tag.open,entity.name.tag.close,entity.name.function.tsx",
 			"settings": {
 				"foreground": "#59abf7"
 			}
@@ -1859,7 +1859,7 @@
 			}
 		},
 		{
-			"scope": "meta.selector.css,entity.other.attribute-name.class.css",
+			"scope": "meta.selector.css,entity.other.attribute-name.class.css,entity.other.attribute-name",
 			"settings": {
 				"foreground": "#fed06d"
 			}
@@ -1871,7 +1871,7 @@
 			}
 		},
 		{
-			"scope": "entity.name.tag.html,meta.tag.structure.head.end.html,text.html.derivative",
+			"scope": "entity.name.tag.html,meta.tag.structure.head.end.html,text.html.derivative,variable.other.readwrite",
 			"settings": {
 				"foreground": "#59abf7"
 			}
@@ -1891,7 +1891,7 @@
 		"sideBar.foreground": "#cccccc",
 		"sideBarSectionHeader.background": "#00000000",
 		"sideBarSectionHeader.foreground": "#cccccc",
-		"sideBarSectionHeader.border": "#cccccc33",
+		"sideBarSectionHeader.border": "#2c2c2c",
 		"sideBarTitle.foreground": "#bbbbbb",
 		"list.inactiveSelectionBackground": "#37373d",
 		"list.inactiveSelectionForeground": "#cccccc",
@@ -1900,7 +1900,7 @@
 		"list.activeSelectionBackground": "#094771",
 		"list.activeSelectionForeground": "#ffffff",
 		"tree.indentGuidesStroke": "#585858",
-		"list.dropBackground": "#383b3d",
+		"list.dropBackground": "#2c2c2c",
 		"list.highlightForeground": "#0097fb",
 		"list.focusBackground": "#062f4a",
 		"list.focusForeground": "#cccccc",
@@ -1920,7 +1920,7 @@
 		"titleBar.activeForeground": "#cccccc",
 		"titleBar.inactiveBackground": "#222",
 		"titleBar.inactiveForeground": "#ddd",
-		"titleBar.border": "#383b3d",
+		"titleBar.border": "#2c2c2c",
 		"menubar.selectionForeground": "#cccccc",
 		"menubar.selectionBackground": "#ffffff1a",
 		"menu.foreground": "#cccccc",
@@ -2115,10 +2115,10 @@
 		"minimap.errorHighlight": "#f48771",
 		"minimap.warningHighlight": "#cca700",
 		"minimap.background": "#131313",
-		"sideBar.dropBackground": "#383b3d",
-		"sideBar.border": "#383b3d",
+		"sideBar.dropBackground": "#2c2c2c",
+		"sideBar.border": "#2c2c2c",
 		"editorGroup.emptyBackground": "#131313",
-		"panelSection.border": "#80808059",
+		"panelSection.border": "#2c2c2c",
 		"statusBarItem.activeBackground": "#FFFFFF25",
 		"settings.headerForeground": "#cccccc",
 		"settings.focusedRowBackground": "#ffffff07",
