@@ -223,6 +223,34 @@ const activate = (context) => {
 					border-left: 4px solid #50fa7b;
 					background: rgb(116, 207, 136, 0.1);
 				}
+				.title.tabs.show-file-icons {
+					height: 51px;
+				}
+				.tabs-and-actions-container {
+					height: 51px;
+				}
+				.title .tabs-and-actions-container .tabs-container {
+					padding: 8px;
+					gap: 8px;
+				}
+				.title>.tabs-and-actions-container {
+					align-items:center;
+				}
+				.title .tabs-and-actions-container .tabs-container .tab {
+					border-radius: 8px;
+				}
+				.tabs-container .tab-border-bottom-container {
+					display: none !important;
+				}
+				.monaco-list.list_id_2.mouse-support.last-focused.selection-none:focus-within {
+					outline: none !important;
+				}
+				.monaco-list>.monaco-scrollable-element {
+					padding: 0 4px;
+				}
+				.explorer-folders-view .monaco-list-row {
+					border-radius: 6px;
+				}
 			</style>`;
 		} catch (e) {
 			console.error(e);
