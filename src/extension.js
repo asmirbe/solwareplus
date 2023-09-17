@@ -188,6 +188,11 @@ const activate = (context) => {
 	// #### Patching ##############################################################
 
 	async function performPatch(uuidSession) {
+		if(!uuidSession) {
+				console.log("UUID session is not valid.");
+				return;
+		}
+		console.log("UUID Session:", uuidSession);
 		let html = await fs.promises.readFile(htmlFile, "utf-8");
 		html = clearExistingPatches(html);
 
@@ -195,6 +200,8 @@ const activate = (context) => {
 		html = html.replace(/<meta\s+http-equiv="Content-Security-Policy"[\s\S]*?\/>/, "");
 
 		html = html.replace(/(<\/html>)/, `<!-- !! VSCODE-CUSTOM-CSS-SESSION-ID ${uuidSession} !! -->\n` + "<!-- !! VSCODE-CUSTOM-CSS-START !! -->\n" + injectHTML + "<!-- !! VSCODE-CUSTOM-CSS-END !! -->\n</html>");
+		console.log(`uuidSession: ${uuidSession}`);
+		console.log(`injectHTML: ${injectHTML}`);
 		try {
 			await fs.promises.writeFile(htmlFile, html, "utf-8");
 		} catch (e) {
@@ -210,34 +217,20 @@ const activate = (context) => {
 	}
 
 	async function patchHtml() {
-		let res = "";
-		const imp = await patchHtmlForItem();
-		if (imp) res += imp;
-		console.log(res, imp);
-		return res;
+		try {
+			const imp = await patchHtmlForItem();
+			console.log(imp);
+			return imp;
+		} catch (e) {
+			console.error(e);
+			return "";
+		}
 	}
 	async function patchHtmlForItem() {
-		try {
-			return `<style>
-				.editor-instance .margin-view-overlays .current-line {
+		return `<style>
+				.part.editor>.content .grid-view-container .overflow-guard .margin-view-overlays .current-line {
 					border-left: 4px solid #50fa7b;
 					background: rgb(116, 207, 136, 0.1);
-				}
-				.title.tabs.show-file-icons {
-					height: 51px;
-				}
-				.tabs-and-actions-container {
-					height: 51px;
-				}
-				.title .tabs-and-actions-container .tabs-container {
-					padding: 8px;
-					gap: 8px;
-				}
-				.title>.tabs-and-actions-container {
-					align-items:center;
-				}
-				.title .tabs-and-actions-container .tabs-container .tab {
-					border-radius: 8px;
 				}
 				.tabs-container .tab-border-bottom-container {
 					display: none !important;
@@ -245,18 +238,7 @@ const activate = (context) => {
 				.monaco-list.list_id_2.mouse-support.last-focused.selection-none:focus-within {
 					outline: none !important;
 				}
-				.monaco-list>.monaco-scrollable-element {
-					padding: 0 4px;
-				}
-				.explorer-folders-view .monaco-list-row {
-					border-radius: 6px;
-				}
-			</style>`;
-		} catch (e) {
-			console.error(e);
-			vscode.window.showWarningMessage("Cannot load");
-			return "";
-		}
+		</style>`;
 	}
 
 	function reloadWindow() {
