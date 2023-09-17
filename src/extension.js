@@ -188,9 +188,9 @@ const activate = (context) => {
 	// #### Patching ##############################################################
 
 	async function performPatch(uuidSession) {
-		if(!uuidSession) {
-				console.log("UUID session is not valid.");
-				return;
+		if (!uuidSession) {
+			console.log("UUID session is not valid.");
+			return;
 		}
 		console.log("UUID Session:", uuidSession);
 		let html = await fs.promises.readFile(htmlFile, "utf-8");
@@ -232,6 +232,15 @@ const activate = (context) => {
 					border-left: 4px solid #50fa7b;
 					background: rgb(116, 207, 136, 0.1);
 				}
+				.title.tabs.show-file-icons::before {
+					content: '';
+					width: 100%;
+					height: 1px;
+					position: absolute;
+					bottom: 0;
+					background: #2c2c2c;
+					z-index: 999;
+			}
 				.tabs-container .tab-border-bottom-container {
 					display: none !important;
 				}
