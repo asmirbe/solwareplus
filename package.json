@@ -31,18 +31,6 @@
 			{
 				"command": "open-with-url-prefix.open",
 				"title": "Open in next sandbox"
-			},
-			{
-				"command": "extension.installCustomCSS",
-				"title": "Enable Custom CSS and JS"
-			},
-			{
-				"command": "extension.uninstallCustomCSS",
-				"title": "Disable Custom CSS and JS"
-			},
-			{
-				"command": "extension.updateCustomCSS",
-				"title": "Reload Custom CSS and JS"
 			}
 		],
 		"menus": {

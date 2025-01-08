@@ -1,52 +1,29 @@
-# Solware+ 🌠
+<img src="./logo.png" alt="">
 
-A Visual Studio Code theme for the solware team developers. Fine-tuned for those of us who like to code late into the night. Color choices have taken into consideration what is accessible to people with colorblindness and in low-light circumstances. Decisions were also based on meaningful contrast for reading comprehension and for optimal razzle dazzle. ✨
+### SolwarePlus
 
-About this theme, and some of the considerations made while creating it (as well as _how_ to create it should you want to make your own): [https://css-tricks.com/creating-a-vs-code-theme/](https://css-tricks.com/creating-a-vs-code-theme/)
+**Description:**
+Right-click a file, then click "Open in next sandbox" to open it in the next sandbox environment.
 
-## Solware+
+**Features:**
 
-![First Screen](vscode.png)
+- **Command:** Open in next sandbox
+  - Title: `Open in next sandbox`
+  - Description: Opens files in a separate sandbox for isolated execution.
 
-# Installation
+**Installation Requirements:**
 
-1.  Install [Visual Studio Code](https://code.visualstudio.com/)
-2.  Launch Visual Studio Code
-3.  Choose **Extensions** from menu
-4.  Click on the three dots **…** on the top right of the sidebar
-5.  Click **Install from VSIX**
-6.  Select the `solwareplus-0.1.0.vsix` file and install it, restart Visual Studio Code and enjoy !
+- VSCode version: `^1.62.0`
 
-## Preferences shown in the preview
+**Usage:**
+1. Download or clone the repository from [GitHub](https://github.com/asmirbelkic/solware.git).
+2. Run the extension in your local environment.
+3. Use the provided commands to manage files and custom styles.
 
-The font in the preview image is Menlo, [available here](https://www.cufonfonts.com/font/menlo). Editor settings to activate font ligatures:
+### Repository Information
 
-```
-"editor.fontFamily": "Menlo, IBM Plex Mono, monospace",
-"editor.fontLigatures": false,
-"editor.fontSize": 14,
-"editor.lineHeight": 1.55,
-"workbench.productIconTheme": "feather-vscode",
-```
+- **Name:** SolwarePlus
+- **Author:** Asmir Belkic
+- **Repository URL:** https://github.com/asmirbelkic/solware.git
 
-## Preferences for pair colorization
-
-In your `settings.json` pass `editor.bracketPairColorization.enabled` to `true`, then paste in the custom palette.
-
-```
-"workbench.colorCustomizations": {
-	"editorBracketHighlight.foreground1": "#5caeef",
-	"editorBracketHighlight.foreground2": "#dfb976",
-	"editorBracketHighlight.foreground3": "#c172d9",
-	"editorBracketHighlight.foreground4": "#4fb1bc",
-	"editorBracketHighlight.foreground5": "#97c26c",
-	"editorBracketHighlight.foreground6": "#abb2c0",
-	"editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
-}
-```
-
-## Misc
-
-This is my first foray into creating a theme, so if you see something wrong, please feel free to contact me on Teams, I'm sure there are things I missed.
-
-This palette was inspired in part by "gatsby-highlight" plugin [Gatsby](https://www.gatsbyjs.com/plugins/gatsby-remark-highlight-code/).
+For detailed development instructions or additional features, refer to the source code and documentation within the repository.
