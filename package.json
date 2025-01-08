@@ -1,67 +1,68 @@
 {
-	"name": "solwareplus",
-	"displayName": "SolwarePlus",
-	"description": "Right click a file then click on Open in next sandbox to open the file in the next sandbox.",
-	"version": "0.1.0",
-	"publisher": "Asmir Belkic",
-	"author": "Asmir Belkic",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/asmirbelkic/solware.git"
-	},
+   "name": "solwareplus",
+   "displayName": "SolwarePlus",
+   "description": "Right click a file then click on Open in next sandbox to open the file in the next sandbox.",
+   "version": "0.1.0",
+   "publisher": "asmirbe",
+   "author": "Asmir Belkic",
+   "icon": "logo.png",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/asmirbe/solwareplus"
+   },
    "activationEvents": [],
-	"preview": true,
-	"engines": {
-		"vscode": "^1.62.0"
-	},
-	"categories": [
-		"Other",
-		"Themes"
-	],
-	"main": "./src/extension.js",
-	"contributes": {
-		"themes": [
-			{
-				"id": "Solware",
-				"label": "Solware+",
-				"uiTheme": "vs-dark",
-				"path": "./themes/solware-theme.json"
-			}
-		],
-		"commands": [
-			{
-				"command": "open-with-url-prefix.open",
-				"title": "Open in next sandbox"
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"command": "open-with-url-prefix.open",
-					"group": "navigation",
-					"when": "resourceScheme == 'file'"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"package": "vsce package",
-		"format": "npx prettier --write ."
-	},
-	"devDependencies": {
-		"@eslint/js": "^9.17.0",
-		"eslint": "^9.17.0",
-		"typescript": "^4.5.2",
-		"vscode": "^1.1.37"
-	},
-	"dependencies": {
-		"axios": "^1.5.0",
-		"prettier": "^3.0.3",
-		"file-url": "^3.0.0",
-		"node-fetch": "^2.0.0",
-		"open": "^9.1.0",
-		"openurl": "^1.1.1",
-		"uuid": "^8.3.2",
-		"vsce": "^2.15.0"
-	}
+   "preview": true,
+   "engines": {
+      "vscode": "^1.62.0"
+   },
+   "categories": [
+      "Other",
+      "Themes"
+   ],
+   "main": "./src/extension.js",
+   "contributes": {
+      "themes": [
+         {
+            "id": "Solware",
+            "label": "Solware+",
+            "uiTheme": "vs-dark",
+            "path": "./themes/solware-theme.json"
+         }
+      ],
+      "commands": [
+         {
+            "command": "open-with-url-prefix.open",
+            "title": "Open in next sandbox"
+         }
+      ],
+      "menus": {
+         "explorer/context": [
+            {
+               "command": "open-with-url-prefix.open",
+               "group": "navigation",
+               "when": "resourceScheme == 'file'"
+            }
+         ]
+      }
+   },
+   "scripts": {
+      "package": "vsce package",
+      "lint": "eslint",
+      "format": "npx prettier --write ."
+   },
+   "devDependencies": {
+      "@eslint/js": "^9.17.0",
+      "eslint": "^9.17.0",
+      "vsce": "^2.15.0",
+      "vscode": "^1.1.37",
+      "prettier": "^3.0.3"
+   },
+   "dependencies": {
+      "axios": "^1.5.0",
+      "file-url": "^3.0.0",
+      "node-fetch": "^2.0.0",
+      "open": "^9.1.0",
+      "openurl": "^1.1.1",
+      "uuid": "^8.3.2"
+   }
 }
