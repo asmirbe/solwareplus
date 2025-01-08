@@ -10,9 +10,6 @@
 		"url": "https://github.com/asmirbelkic/solware.git"
 	},
 	"preview": true,
-	"activationEvents": [
-		"*"
-	],
 	"engines": {
 		"vscode": "^1.62.0"
 	},
